@@ -45,15 +45,12 @@ public class Calculator {
     }
 
     static int calc(int a, int b, String oper) {
-        if (oper.equals("+")) {
-            return a + b;
-        } else if (oper.equals("-")) {
-            return a - b;
-        } else if (oper.equals("*")) {
-            return a * b;
-        } else {
-            return a / b;
-        }
+        return switch (oper) {
+            case "+" -> a + b;
+            case "-" -> a - b;
+            case "*" -> a * b;
+            default -> a / b;
+        };
     }
 
     static String detectOperation(String expression) {
@@ -70,7 +67,7 @@ public class Calculator {
         }
     }
 
-    class Roman {
+    static class Roman {
         static String[] romanArray = new String[]{"0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
                 "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
                 "XXI", "XIV", "XV", "XVII", "XVIII", "XXX", "XXXII", "XXXV", "XXXVI", "XL",
@@ -78,8 +75,8 @@ public class Calculator {
                 "LXXXI", "XC", "C"};
 
         public static boolean isRoman(String val) {
-            for (int i = 0; i < romanArray.length; i++) {
-                if (val.equals(romanArray[i])) {
+            for (String s : romanArray) {
+                if (val.equals(s)) {
                     return true;
                 }
             }
@@ -99,4 +96,5 @@ public class Calculator {
             return romanArray[arabian];
         }
     }
+
 }
