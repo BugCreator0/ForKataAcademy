@@ -99,9 +99,4 @@ public class Calculator {
             return romanArray[arabian];
         }
     }
-
-
-
-
-
 }
